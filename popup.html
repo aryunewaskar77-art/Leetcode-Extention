@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS to LeetCode Matcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-section">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFA116">
+          <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .666-1.794l3.774-4.04 5.322-5.703A1.376 1.376 0 0 0 13.483 0zm-2.88 5.57a1.38 1.38 0 0 0-.978.405l-4.1 4.1a1.38 1.38 0 0 0 1.95 1.953l4.1-4.1a1.38 1.38 0 0 0-.972-2.358zm7.575 3.327a1.38 1.38 0 0 0-.978.405l-8.91 8.91a1.38 1.38 0 1 0 1.95 1.953l8.91-8.91a1.38 1.38 0 0 0-.972-2.358z"/>
+        </svg>
+        <span class="app-title">LMS &rarr; LeetCode</span>
+      </div>
+    </header>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner hidden"></div>
+
+    <!-- Scan Trigger Button -->
+    <div class="action-section">
+      <button id="scanPageBtn" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Scan Current Page</span>
+      </button>
+    </div>
+
+    <!-- Manual Fallback Accordion -->
+    <div class="accordion">
+      <div id="accordionHeader" class="accordion-header">
+        <span>Paste Problem Text Manually</span>
+        <span id="accordionArrow">&#9662;</span>
+      </div>
+      <div id="accordionContent" class="accordion-content">
+        <textarea id="manualTextInput" class="textarea-input" placeholder="Paste assignment text, prompt, or examples here..."></textarea>
+        <button id="analyzeManualBtn" class="btn-secondary" style="width: 100%;">
+          Analyze Pasted Problem
+        </button>
+      </div>
+    </div>
+
+    <!-- Result / Status Card -->
+    <div id="loadingState" class="state-container hidden">
+      <div class="spinner"></div>
+      <p>Analyzing problem invariants with Gemini 3.5 Flash...</p>
+    </div>
+
+    <div id="emptyState" class="state-container">
+      <p>Highlight text on page or click <strong>Scan Current Page</strong> to detect the matching LeetCode problem.</p>
+    </div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-header">
+        <div>
+          <a id="resultTitleLink" class="result-title-link" href="#" target="_blank" rel="noopener">
+            #15 - 3Sum
+          </a>
+        </div>
+        <div class="badge-group">
+          <span id="resultDifficulty" class="diff-badge diff-Medium">Medium</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+        <span id="resultPattern" class="pattern-tag">⚡ Two Pointers / Sorting</span>
+        <span id="resultConfidence" class="conf-badge">Confidence: 95%</span>
+      </div>
+
+      <div id="resultReasoning" class="reasoning-box">
+        Maps directly to 3Sum because it asks for unique triplets summing to zero with O(N^2) complexity constraints.
+      </div>
+
+      <!-- Verified Alfa LeetCode Dataset Section -->
+      <div id="datasetDetailsSection" class="dataset-section hidden">
+        <div class="dataset-header">
+          <span>Official LeetCode Dataset</span>
+          <span class="dataset-verified-pill">&check; Verified</span>
+        </div>
+        <div id="officialTagsContainer" class="official-tags-container"></div>
+        <div id="officialHintsSection" class="official-hints-container hidden">
+          <div class="hints-title">Official Hints</div>
+          <ul id="officialHintsList" class="hints-list"></ul>
+        </div>
+        <div id="similarQuestionsSection" class="similar-questions-container hidden">
+          <div class="similar-title">Similar Problems</div>
+          <div id="similarQuestionsList" class="similar-list"></div>
+        </div>
+      </div>
+
+      <a id="resultOpenLink" class="link-button" href="#" target="_blank" rel="noopener">
+        Open Problem on LeetCode &rarr;
+      </a>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
