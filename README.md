@@ -41,7 +41,7 @@ A Chrome Extension that inspects coding assignments presented on university Lear
 
 - [manifest.json](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/manifest.json): Manifest V3 configuration with necessary permissions (`storage`, `activeTab`, `scripting`, and host permissions).
 - [gemini.js](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/gemini.js): Gemini 2.5 Flash client with JSON schema enforcement (`responseMimeType: "application/json"`).
-- [leetcodeApi.js](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/leetcodeApi.js): Integration with the open [Alfa-LeetCode-API](https://alfa-leetcode-api.onrender.com/) dataset for verifying matched problem slugs, retrieving official topic tags, hints, and related problems.
+- [leetcodeApi.js](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/leetcodeApi.js): Integration with the open [Alfa-LeetCode-API](https://github.com/alfaarghya/alfa-leetcode-api) dataset for verifying matched problem slugs, retrieving official topic tags, hints, and related problems.
 - [background.js](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/background.js): Service worker handling cross-context messaging, Alfa LeetCode dataset enrichment, and extension badges (`EZ`, `MED`, `HRD`).
 - [content.js](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/content.js): Content script scraping DOM / selection and injecting the floating pill & result widget.
 - [injected.css](file:///Users/aaryaanewaskar/Desktop/Projects/leetcodeExtention/injected.css): Stylesheet for the floating selection pill and embedded badge on web pages.
